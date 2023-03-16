@@ -150,6 +150,7 @@ label {
     margin-left: 5px;
 }
 
+
 #generate-btn {
     margin: 2rem 0 0 0;
     padding: 1rem 0;
@@ -167,4 +168,15 @@ label {
 
 #generate-btn:hover {
     background-color: #60ff73;
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 100%;
+        padding: 1rem;
+    }
+
+    .card {
+        width: 100%;
+    }
 }
