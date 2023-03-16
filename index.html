@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+    <title>Password Generator</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="card">Password Generator</h1>
+
+        <div class="generated-password card">
+            <p id="generated-password">
+                P4$5W0rD!P4$5W0rD!P4$5W0rD!</p>
+            <i class="fa-regular fa-copy copy"></i>
+        </div>
+        <div class="options card">
+            <form action="">
+                <div class="length">
+                    <h4>Character length</h4>
+                    <span class="char-length">0</span>
+                </div>
+                <div class="slider-container">
+                    <input type="range" class="slider" id="pass-range" min="6" max="30" step="1" value="6">
+                </div>
+
+                <label for="upper-case">
+                    <input type="checkbox" name="upper-case" id="uppercase">
+                    Include Uppercase Letters
+                </label>
+                <label>
+                    <input type="checkbox" name="lower-case" id="lowercase">
+                    Include Uppercase Letters
+                </label>
+                <label for="numbers">
+                    <input type="checkbox" name="numbers" id="numbers">
+                    Include Uppercase Letters
+                </label>
+                <label for="symbols">
+                    <input type="checkbox" name="symbols" id="symbols">
+                    Include Uppercase Letters
+                </label>
+                <div class="str-level">
+                    <h4>STRENGTH</h4>
+                    <div> <span class="str str-1"></span>
+                        <span class="str str-2"></span>
+                        <span class="str str-3"></span>
+                        <span class="str str-4"></span>
+                    </div>
+
+                </div>
+                <button type="submit" id="generate-btn">
+                    GENERATE
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
