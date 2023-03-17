@@ -20,7 +20,11 @@
         <div class="generated-password card">
             <p id="generated-password-text">
                 P4$5W0rD!</p>
-            <i class="fa-regular fa-copy copy"></i>
+            <div class="tooltip">
+                <i class="fa-regular fa-copy copy">
+                    <span class="tooltip-text"></span>
+                </i>
+            </div>
         </div>
         <div class="options card">
             <form action="">
@@ -29,23 +33,23 @@
                     <span class="char-length">4</span>
                 </div>
                 <div class="slider-container">
-                    <input type="range" class="slider" id="pass-range" min="4" max="30" step="1" value="4">
+                    <input type="range" class="slider" id="pass-range" min="4" max="40" step="1" value="4">
                 </div>
 
                 <label for="upper-case">
-                    <input type="checkbox" name="upper-case" id="uppercase">
+                    <input type="checkbox" name="upper-case" id="uppercase" class="checkbox">
                     Include Uppercase Letters
                 </label>
                 <label>
-                    <input type="checkbox" name="lower-case" id="lowercase">
+                    <input type="checkbox" name="lower-case" id="lowercase" class="checkbox">
                     Include Lowercase Letters
                 </label>
                 <label for="numbers">
-                    <input type="checkbox" name="numbers" id="numbers">
+                    <input type="checkbox" name="numbers" id="numbers" class="checkbox">
                     Include Numbers
                 </label>
                 <label for="symbols">
-                    <input type="checkbox" name="symbols" id="symbols">
+                    <input type="checkbox" name="symbols" id="symbols" class="checkbox">
                     Include symbols
                 </label>
                 <div class="str-level">

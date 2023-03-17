@@ -85,31 +85,63 @@ function generatePasscode(selected) {
 }
 
 function passStrength() {}
-// event handlers
 
-slider.addEventListener('input', characterLength);
-upperCaseCheck.addEventListener('input', () => {
-  global.upperCaseFlag === true
-    ? (global.upperCaseFlag = false)
-    : (global.upperCaseFlag = true);
-});
+// Copying text to clipboard using clipboard api
 
-lowerCaseCheck.addEventListener('input', () => {
-  global.lowerCaseFlag === true
-    ? (global.lowerCaseFlag = false)
-    : (global.lowerCaseFlag = true);
-});
+async function copyToClipboard() {
+  const textCopy = generatePass.innerText;
+  try {
+    await navigator.clipboard.writeText(textCopy);
+    const tooltip = document.querySelector('.tooltip-text');
+    tooltip.classList.add('tooltip-text-view');
+    tooltip.innerText = 'Copied to clipboard';
+    setTimeout(() => {
+      tooltip.classList.remove('tooltip-text-view');
+      tooltip.innerText = '';
+    }, 2000);
+  } catch (err) {
+    console.log('failed to copy', err);
+  }
+}
 
-numbersCheck.addEventListener('input', () => {
-  global.numberFlag === true
-    ? (global.numberFlag = false)
-    : (global.numberFlag = true);
-});
+function resetOptions() {
+  const checkbox = Array.from(document.getElementsByClassName('checkbox'));
+  checkbox.forEach((check) => (check.checked = false));
+  slider.value = global.length;
+}
 
-symbolsCheck.addEventListener('input', () => {
-  global.symbolsFlag === true
-    ? (global.symbolsFlag = false)
-    : (global.symbolsFlag = true);
-});
+// events
 
-generateBtn.addEventListener('click', generatingPassSequence);
+const eventHandlers = () => {
+  resetOptions();
+
+  slider.addEventListener('input', characterLength);
+  upperCaseCheck.addEventListener('input', () => {
+    global.upperCaseFlag === true
+      ? (global.upperCaseFlag = false)
+      : (global.upperCaseFlag = true);
+  });
+
+  lowerCaseCheck.addEventListener('input', () => {
+    global.lowerCaseFlag === true
+      ? (global.lowerCaseFlag = false)
+      : (global.lowerCaseFlag = true);
+  });
+
+  numbersCheck.addEventListener('input', () => {
+    global.numberFlag === true
+      ? (global.numberFlag = false)
+      : (global.numberFlag = true);
+  });
+
+  symbolsCheck.addEventListener('input', () => {
+    global.symbolsFlag === true
+      ? (global.symbolsFlag = false)
+      : (global.symbolsFlag = true);
+  });
+
+  generateBtn.addEventListener('click', generatingPassSequence);
+  copy.addEventListener('click', copyToClipboard);
+};
+
+document.addEventListener('DOMContentLoaded', eventHandlers);
